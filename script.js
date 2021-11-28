@@ -26,14 +26,31 @@ const colors = {
     default: '#000000'
 }
 
+// const searchPokemon = event => {
+//     event.preventDefault();
+//     const { value } = event.target.pokemon;
+//     fetch(`https://pokeapi.co/api/v2/pokemon/${value.toLowerCase()}`)
+//     // fetch('https://pokeapi.co/api/v2/pokemon/'+value.toLowerCase())
+//         .then(data => data.json())
+//         .then(response => renderPokemonData(response))
+//         .catch(err => renderNotFound())
+// }
+
 const searchPokemon = event => {
     event.preventDefault();
-    const { value } = event.target.pokemon;
-    fetch(`https://pokeapi.co/api/v2/pokemon/${value.toLowerCase()}`)
-    // fetch('https://pokeapi.co/api/v2/pokemon/'+value.toLowerCase())
-        .then(data => data.json())
-        .then(response => renderPokemonData(response))
-        .catch(err => renderNotFound())
+    const {value} = event.target.pokemon;
+    fetchPokemon(value);
+}
+
+const fetchPokemon = async (poke) => {
+    try {
+        const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${poke.toLowerCase()}`);
+        const data = await res.json();
+        renderPokemonData(data);
+    }
+    catch (error) {
+        renderNotFound();
+    }
 }
 
 const renderPokemonData = data => {
