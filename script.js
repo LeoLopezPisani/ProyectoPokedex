@@ -14,6 +14,7 @@ const colors = {
     rock: '#969696',
     flying: '#4eb185',
     grass: '#24b452',
+    water: '#2338ec',
     psychic: '#f3eb95',
     ghost: '#340f5a',
     bug: '#073c1d',
@@ -23,7 +24,7 @@ const colors = {
     steel: '#7281ad',
     fighting: '#eb8613',
     fairy: '#ffaaee',
-    default: '#000000'
+    default: '#000000',
 }
 
 // const searchPokemon = event => {
@@ -57,9 +58,9 @@ const renderPokemonData = data => {
     const sprite = data.sprites.front_default;
     const {stats, types} = data;
 
-    pokeName.textContent = data.name;
+    pokeName.textContent = pascalCase(data.name);
     pokeImg.setAttribute('src', sprite);
-    pokeId.textContent = `Nº ${data.id}`;
+    pokeId.textContent = `Pokemon Nº ${data.id}`;
     setCardColor(types);
     renderPokemonTypes(types);
     renderPokemonStats(stats);
@@ -84,6 +85,7 @@ const renderPokemonTypes = types => {
 
 const renderPokemonStats = stats => {
     pokeStats.innerHTML = '';
+    pokeStats.style.border = '1px dashed black';
     stats.forEach(stat => {
         const statElement = document.createElement('div');
         const statElementName = document.createElement('div');
@@ -100,7 +102,15 @@ const renderNotFound = () => {
     pokeName.textContent = 'Pokedex';
     pokeImg.setAttribute('src', "whos_that_pokemon.png");
     pokeImg.style.background = '#fff';
+    pokeStats.style.border = '0';
     pokeTypes.innerHTML = '';
     pokeStats.innerHTML = '';
     pokeId.textContent = '';
+}
+
+function pascalCase(string) {
+    let splited = string.split('');
+    splited[0] = splited[0].toUpperCase();
+    let camelCasedStr = splited.join('');
+    return camelCasedStr;
 }
