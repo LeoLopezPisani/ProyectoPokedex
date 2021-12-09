@@ -1,5 +1,7 @@
 body {
-    background-color: #eeeeee;
+    background: rgb(210,60,50);
+    background: linear-gradient(115deg, rgba(210,60,50,1) 16%, rgba(222,84,36,1) 17%, rgba(222,84,36,1) 77%, rgba(210,60,50,1) 78%);
+    height: 1000px;
 }
 
 form {
@@ -13,25 +15,27 @@ input {
 }
 
 .poke-card {
-    position: relative;
-    height: fit-content;
+    /* position: relative; */
+    /* height: fit-content; */
+    display: flex;
     font-family: Verdana, sans-serif;
-    max-width: 300px;
+    /* max-width: 300px; */
     border-radius: 10px;
     color: black;
-    text-align: center;
+    justify-content: space-around;
+    /* text-align: center; */
     font-family: 'Francois One', sans-serif;
     padding: 10px;
     margin: 0 auto;
-    background: linear-gradient(to right, red, rgb(243, 197, 47));
-    border: 1px solid black;
+    /* background: linear-gradient(to right, red, rgb(243, 197, 47)); */
+    /* border: 1px solid black; */
 }
 
 .poke-name {
     font-size: 40px;
 }
 
-.poke-card::before {
+/* .poke-card::before {
     content: '';
     background: radial-gradient(black 33%, transparent 33%);
     background-size: 3px 3px;
@@ -42,12 +46,17 @@ input {
     left: 10px;
     top: 10px;
     z-index: -1;
-}
+} */
 
 .img-container {
-    position: relative;
+    /* position: relative; */
+    /* width: 180px; */
+    margin: 10px;
+}
+
+.poke-img {
     width: 180px;
-    margin: 10px auto;
+    border-radius: 50%;
 }
 
 .poke-stats div{
@@ -70,9 +79,4 @@ input {
     background-color: rgba(255, 255, 255, 0.4);
     border: 1px dashed black;
     text-shadow: 1.5px 2px 1px black;
-}
-
-.poke-img {
-    width: 180px;
-    border-radius: 50%;
 }
