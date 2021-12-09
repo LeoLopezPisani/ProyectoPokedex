@@ -7,31 +7,37 @@
     <title>Proyecto Pokedex</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Francois+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Francois+One&family=Indie+Flower&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="style.css" type="text/css">
     <script type="text/javascript" src="script.js" defer></script>
 </head>
 <body>
-    <form action="" onsubmit="searchPokemon(event)">
-        <label for="text">Insert Pokemon Name</label>
-        <input type="text" name="pokemon" autocomplete="off">
-    </form>
-
-    <div data-poke-card class="poke-card">
-        <div data-poke-img-container class="img-container">
-            <img data-poke-img class="poke-img" src="whos_that_pokemon.png" alt="Who's that pokemon">
-        </div>
-        <div class="poke-info">
-            <div data-poke-detail class="poke-detail">
-                <img data-poke-img-lt class="poke-img-lt" src="pikachu_shadow.png" alt="">
-                <div data-poke-id class="poke-id"></div>
-                <div data-poke-name class="poke-name">
-                    Pokedex
-                </div>
+    <h1>Welcome to my Pokedex</h1>
+    <main>
+        <form action="" onsubmit="searchPokemon(event)">
+            <label for="text">Pokemon Name</label>
+            <input type="text" name="pokemon" autocomplete="off">
+        </form>
+        <div data-poke-card class="poke-card">
+            <div data-poke-img-container class="img-container">
+                <img data-poke-img class="poke-img" src="whos_that_pokemon.png" alt="Who's that pokemon">
             </div>
-            <div data-poke-types class="poke-types"></div>
-            <div data-poke-stats class="poke-stats"></div>
+            <div class="poke-info">
+                <div data-poke-detail class="poke-detail">
+                    <img data-poke-img-lt class="poke-img-lt" src="pikachu_shadow.png" alt="">
+                    <div data-poke-id class="poke-id"></div>
+                    <div data-poke-name class="poke-name">
+                        Pokedex
+                    </div>
+                </div>
+                <div data-poke-types class="poke-types"></div>
+                <div data-poke-stats class="poke-stats"></div>
+            </div>
         </div>
-    </div>
+    </main>
+    <footer>
+        <p>Leonel López Pisani - 2021</p>
+        <p>Check my <a href="https://www.linkedin.com/in/leo-lopez-pisani/">LinkedIn</a> and my <a href="https://github.com/LeoLopezPisani">GitHub</a></p>
+    </footer>
 </body>
 </html>

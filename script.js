@@ -109,6 +109,8 @@ const renderNotFound = () => {
     pokeName.textContent = 'Pokedex';
     pokeImg.setAttribute('src', "whos_that_pokemon.png");
     pokeImgLt.setAttribute('src', "pikachu_shadow.png");
+    pokeDetails.style.background = "rgb(210,90,50)";
+    pokeDetails.style.background = "linear-gradient(105deg, rgb(216, 60, 8) 30%, rgba(0,0,0,1) 31%)";
     pokeStats.style.border = '0';
     pokeTypes.innerHTML = '';
     pokeStats.innerHTML = '';
