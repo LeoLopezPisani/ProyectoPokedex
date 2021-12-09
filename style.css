@@ -1,34 +1,62 @@
 body {
-    height: 950px;
+    margin: 0;
     /* background: rgb(210,60,50);
     background: linear-gradient(110deg, rgba(210,60,50,1) 16%, rgba(223,110,71,1) 17%, rgba(223,110,71,1) 77%, rgba(210,60,50,1) 78%); */
     background: rgb(53,183,143);
     background: linear-gradient(115deg, rgba(53,183,143,1) 5%, rgba(93,50,210,1) 31%, rgba(76,106,182,1) 74%, rgba(49,195,137,1) 100%);
 }
 
+h1 {
+    color: white;
+    text-align: center;
+    margin: 28px auto;
+    font-family: 'Architects Daughter', cursive;
+    font-size: 3em;
+}
+
 form {
-    width: 200px;
+    width: 500px;
     margin: 20px auto;
 }
 
+label {
+    color: white;
+    font-size: 15px;
+    display: block;
+    font-family: 'Architects Daughter', cursive;
+    font-weight: 600;
+}
+
 input {
-    width: 100%;
+    font-size: 20px;
+    width: 200px;
     padding: 10px;
+    background: none;
+    border: none;
+    border-radius: 2px;
+    border-bottom: 2px solid cadetblue;
+    margin-top: 5px;
+    color: white;
+    outline: none;
+    transition: all 0.4s ease-in-out;
+}
+
+input:focus{
+    width: 300px;
 }
 
 .poke-card {
-    /* position: relative; */
-    /* height: fit-content; */
+    height: 405px;
     display: flex;
-    font-family: Verdana, sans-serif;
     max-width: 80%;
-    /* border-radius: 10px; */
     color: black;
     justify-content: space-around;
-    /* text-align: center; */
     font-family: 'Francois One', sans-serif;
     padding: 10px;
     margin: 5% auto;
+    /* position: relative; */
+    /* border-radius: 10px; */
+    /* text-align: center; */
     /* background: linear-gradient(to right, red, rgb(243, 197, 47)); */
     /* border: 1px solid black; */
 }
@@ -38,7 +66,6 @@ input {
     grid-template-columns: 15% 20% 65%;
     width: 500px;
     color: white;
-    background-color: black;
     background: rgb(210,90,50);
     background: linear-gradient(105deg, rgb(216, 60, 8) 30%, rgba(0,0,0,1) 31%);
 }
@@ -57,19 +84,6 @@ input {
     width: 70px;
     justify-self: start;
 }
-
-/* .poke-card::before {
-    content: '';
-    background: radial-gradient(black 33%, transparent 33%);
-    background-size: 3px 3px;
-    border-radius: 10px;
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    left: 10px;
-    top: 10px;
-    z-index: -1;
-} */
 
 .img-container {
     margin: 10px;
@@ -101,3 +115,22 @@ input {
     text-align: center;
 }
 
+footer {
+    background: black;
+    color: white;
+    padding: 30px;
+    text-align: center;
+}
+
+/* .poke-card::before {
+    content: '';
+    background: radial-gradient(black 33%, transparent 33%);
+    background-size: 3px 3px;
+    border-radius: 10px;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    z-index: -1;
+} */
