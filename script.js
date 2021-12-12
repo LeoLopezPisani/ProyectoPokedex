@@ -7,6 +7,7 @@ const pokeTypes = document.querySelector('[data-poke-types]');
 const pokeStats = document.querySelector('[data-poke-stats]');
 const pokeImgLt = document.querySelector('[data-poke-img-lt]');
 const pokeDetails = document.querySelector('[data-poke-detail]');
+let pokeNumber = 0;
 
 const colors = {
     electric: '#ffee00',
@@ -67,6 +68,7 @@ const renderPokemonData = data => {
     pokeImgLt.setAttribute('src', sprite);
     pokeDetails.style.background = `linear-gradient(105deg, ${colorOne} 30%, ${colorTwo} 31%)`;
     pokeId.textContent = `No. ${data.id}`;
+    pokeNumber = data.id;
     // setCardColor(types);
     renderPokemonTypes(types);
     renderPokemonStats(stats);
@@ -115,6 +117,7 @@ const renderNotFound = () => {
     pokeTypes.innerHTML = '';
     pokeStats.innerHTML = '';
     pokeId.textContent = '';
+    pokeNumber = 0;
 }
 
 function pascalCase(string) {
@@ -122,4 +125,25 @@ function pascalCase(string) {
     splited[0] = splited[0].toUpperCase();
     let camelCasedStr = splited.join('');
     return camelCasedStr;
+}
+
+function nextPoke() {
+    const newPokemon = pokeNumber + 1;
+    fetchPokemonByID(newPokemon);
+}
+
+function previousPoke() {
+    const newPokemon = pokeNumber - 1;
+    fetchPokemonByID(newPokemon);
+}
+
+const fetchPokemonByID = async (id) => {
+    try {
+        const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
+        const data = await res.json();
+        renderPokemonData(data);
+    }
+    catch {
+        renderNotFound();
+    }
 }
