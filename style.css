@@ -134,3 +134,48 @@ footer {
     top: 10px;
     z-index: -1;
 } */
+
+.arrows-container {
+    display: flex;
+}
+
+#previous, #next {
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    font-size: 30px;
+    border: 2px solid white;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    align-self: center;
+    transition: all .4s ease-out;
+}
+
+#previous {
+    margin-right: 10px;
+}
+
+#next {
+    margin-left: 10px;
+}
+
+#previous::before {
+    content: '◀';
+    position: relative;
+    bottom: 2px;
+    left: 5px;
+}
+
+#next::before {
+    content: '▶';
+    position: relative;
+    bottom: 2px;
+    left: 10px;
+}
+
+#previous:hover, #next:hover {
+    color: black;
+    border: 2px solid black;
+    transform: rotate(360deg);
+}
