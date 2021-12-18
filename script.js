@@ -43,7 +43,11 @@ const colors = {
 const searchPokemon = event => {
     event.preventDefault();
     const {value} = event.target.pokemon;
-    fetchPokemon(value);
+    // const cleanVal = value.includes(' ') ? value.replace(' ', '-') : value;
+    // const cleanVal = value.split(' ').join('-');
+    // const regexp = /^\w+ \w+$/;
+    const cleanVal = value.trim().includes(' ') ? value.trim().replace(' ', '-') : value.trim();
+    fetchPokemon(cleanVal);
 }
 
 const fetchPokemon = async (poke) => {
@@ -57,13 +61,24 @@ const fetchPokemon = async (poke) => {
     }
 }
 
+const fetchPokemonByID = async (id) => {
+    try {
+        const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
+        const data = await res.json();
+        renderPokemonData(data);
+    }
+    catch {
+        renderNotFound();
+    }
+}
+
 const renderPokemonData = data => {
     const sprite = data.sprites.front_default;
     const {stats, types} = data;
     const colorOne = colors[types[0].type.name];
     const colorTwo = types[1] ? colors[types[1].type.name] : colors.default;
 
-    pokeName.textContent = pascalCase(data.name);
+    pokeName.textContent = pascalCase(data.name.includes('-') ? data.name.replace('-', ' ') : data.name);
     pokeImg.setAttribute('src', sprite);
     pokeImgLt.setAttribute('src', sprite);
     pokeDetails.style.background = `linear-gradient(105deg, ${colorOne} 30%, ${colorTwo} 31%)`;
@@ -135,15 +150,4 @@ function nextPoke() {
 function previousPoke() {
     const newPokemon = pokeNumber - 1;
     fetchPokemonByID(newPokemon);
-}
-
-const fetchPokemonByID = async (id) => {
-    try {
-        const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
-        const data = await res.json();
-        renderPokemonData(data);
-    }
-    catch {
-        renderNotFound();
-    }
 }

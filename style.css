@@ -54,11 +54,6 @@ input:focus{
     font-family: 'Francois One', sans-serif;
     padding: 10px;
     margin: 5% auto;
-    /* position: relative; */
-    /* border-radius: 10px; */
-    /* text-align: center; */
-    /* background: linear-gradient(to right, red, rgb(243, 197, 47)); */
-    /* border: 1px solid black; */
 }
 
 .poke-detail {
